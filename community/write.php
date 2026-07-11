@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $postId = (int) db()->lastInsertId();
         store_media($postId, 'audio', $audio);
         store_media($postId, 'video', $video);
+        store_youtube($postId, $_POST['youtube'] ?? '');
         $sent = true;
     }
 }
@@ -101,6 +102,8 @@ page_head('Write', 'Write an article or note', 'none', 'WRITE');
       <input type="file" id="audio" name="audio" accept=".mp3,.m4a,.ogg,.wav,audio/*">
       <label for="video">Video file — mp4, webm (optional, 200 MB max)</label>
       <input type="file" id="video" name="video" accept=".mp4,.webm,video/*">
+      <label for="youtube">YouTube link (optional)</label>
+      <input type="text" id="youtube" name="youtube" placeholder="https://www.youtube.com/watch?v=...">
       <p style="margin-top:18px;"><button type="submit" class="btn"><?= $isAdmin ? 'Publish' : 'Submit for review' ?></button></p>
     </form>
 <?php endif; ?>

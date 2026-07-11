@@ -117,6 +117,8 @@ page_head($post['title'], $metabar, $current, $brand, $meta_desc);
   <div class="media-block">
 <?php if ($m['kind'] === 'audio'): ?>
     <audio controls preload="metadata" src="/community/media/<?= e($m['filename']) ?>"></audio>
+<?php elseif ($m['kind'] === 'youtube'): ?>
+    <iframe style="width: 100%; aspect-ratio: 16/9;" src="https://www.youtube.com/embed/<?= e($m['filename']) ?>" frameborder="0" allowfullscreen></iframe>
 <?php else: ?>
     <video controls preload="metadata" src="/community/media/<?= e($m['filename']) ?>"></video>
 <?php endif; ?>

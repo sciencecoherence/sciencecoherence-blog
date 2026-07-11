@@ -81,3 +81,16 @@ function delete_post_media(int $postId): void {
         delete_media_row((int) $m['id'], $postId);
     }
 }
+
+function store_youtube(int $postId, string $url): void {
+    $url = trim($url);
+    if ($url === '') return;
+    $id = '';
+    if (preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i', $url, $match)) {
+        $id = $match[1];
+    }
+    if ($id !== '') {
+        $st = db()->prepare('INSERT INTO media (post_id, kind, filename, original_name, mime) VALUES (?, ?, ?, ?, ?)');
+        $st->execute([$postId, 'youtube', $id, 'YouTube Video', '']);
+    }
+}

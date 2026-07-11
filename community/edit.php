@@ -69,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         store_media($id, 'audio', $audio);
         store_media($id, 'video', $video);
+        store_youtube($id, $_POST['youtube'] ?? '');
         $st = db()->prepare('UPDATE posts SET type = ?, channel = ?, title = ?, excerpt = ?, body = ?, status = ?, approved_at = ? WHERE id = ?');
         $st->execute([$type, $channel, $title, $excerpt, $body, $status, $approvedAt, $id]);
         $msg = $isAdmin ? 'Saved.' : 'Saved — your changes were sent back for review.';
@@ -187,6 +188,8 @@ page_head('Edit — ' . $editing['title'], 'Editing post #' . (int) $editing['id
       <input type="file" id="audio" name="audio" accept=".mp3,.m4a,.ogg,.wav,audio/*">
       <label for="video">Add video — mp4, webm (optional)</label>
       <input type="file" id="video" name="video" accept=".mp4,.webm,video/*">
+      <label for="youtube">Add YouTube link (optional)</label>
+      <input type="text" id="youtube" name="youtube" placeholder="https://www.youtube.com/watch?v=...">
       <p style="margin-top:18px;">
         <button type="submit" class="btn">Save</button>
         <a class="btn ghost" href="post.php?preview=<?= (int) $editing['id'] ?>" style="text-decoration:none;">Preview</a>
