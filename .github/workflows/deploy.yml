@@ -13,12 +13,13 @@ jobs:
     - name: Get latest code
       uses: actions/checkout@v4
       
-    - name: Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    - name: Copy files via SCP
+      uses: appleboy/scp-action@v0.1.7
       with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
-        # Adjust server-dir if your Hostinger setup uses a different folder (e.g. ./public_html/)
-        server-dir: ./public_html/
+        host: 157.173.214.96
+        username: u417347216
+        password: ${{ secrets.SSH_PASSWORD }}
+        port: 65002
+        source: "./*"
+        # Adjust the target path if your Hostinger setup uses a different folder
+        target: "/home/u417347216/domains/sciencecoherence.com/public_html"
