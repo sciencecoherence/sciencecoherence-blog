@@ -139,3 +139,4 @@ phpMyAdmin → Export. Do this before big changes.
 - **404 on community/** → the folder didn't land inside `public_html/`.
 - **Sessions not sticking** → make sure you access the site consistently via
   `https://www.` (cookies are per-domain).
+
