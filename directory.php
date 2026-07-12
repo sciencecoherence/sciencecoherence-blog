@@ -11,7 +11,6 @@ $rows = db()->query(
 )->fetchAll();
 
 $transmissions = array_filter($rows, fn($r) => $r['channel'] === 'site' && $r['type'] === 'transmission');
-$notes = array_filter($rows, fn($r) => $r['channel'] === 'site' && $r['type'] !== 'transmission');
 $community = array_filter($rows, fn($r) => $r['channel'] !== 'site');
 
 function index_table(array $rows, bool $showAuthor): void {
@@ -45,14 +44,13 @@ function index_table(array $rows, bool $showAuthor): void {
     <?php
 }
 
-page_head('Index', 'Chronological index of all transmissions, notes & community posts', 'index', 'INDEX');
+page_head('Index', 'Chronological index of all transmissions & community posts', 'index', 'INDEX');
 ?>
 
   <h2>Transmissions <span class="tag">Voice-originated</span></h2>
 <?php index_table(array_values($transmissions), false); ?>
 
-  <h2>Notes <span class="tag">Framework notes &amp; papers</span></h2>
-<?php index_table(array_values($notes), false); ?>
+
 
   <h2>Community <span class="tag">Reader-contributed, reviewed</span></h2>
 <?php index_table(array_values($community), true); ?>

@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $channel = $isAdmin ? ((($_POST['channel'] ?? '') === 'site') ? 'site' : 'community') : $post['channel'];
     $type    = $_POST['type'] ?? $post['type'];
-    $allowedTypes = ($isAdmin && $channel === 'site') ? ['article', 'note', 'transmission'] : ['article', 'note'];
+    $allowedTypes = ($isAdmin && $channel === 'site') ? ['article', 'transmission'] : ['article'];
     if (!in_array($type, $allowedTypes, true)) {
         $type = $post['type'];
     }
@@ -167,7 +167,7 @@ page_head('Edit — ' . $editing['title'], 'Editing post #' . (int) $editing['id
       <label for="type">Type</label>
       <select id="type" name="type">
         <option value="article" <?= $editing['type'] === 'article' ? 'selected' : '' ?>>Article — essay, long-form</option>
-        <option value="note" <?= $editing['type'] === 'note' ? 'selected' : '' ?>>Note — technical, framework</option>
+
 <?php if ($isAdmin): ?>
         <option value="transmission" <?= $editing['type'] === 'transmission' ? 'selected' : '' ?>>Transmission — voice-originated (site only)</option>
 <?php endif; ?>

@@ -23,7 +23,7 @@ if (count($posts) > $limit) {
     array_pop($posts);
 }
 
-page_head('Community', 'Reader-contributed articles & notes — reviewed before publication', 'community', 'COMMUNITY');
+page_head('Community', 'Reader-contributed articles — reviewed before publication', 'community', 'COMMUNITY');
 ?>
 <?php if (!$posts): ?>
   <div class="empty-state">No community posts yet. <b>Be the first</b> — <a href="register.php">join</a> and <a href="write.php">write</a>.</div>

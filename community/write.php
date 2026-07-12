@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_check();
     $channel = ($isAdmin && (($_POST['channel'] ?? '') === 'site')) ? 'site' : 'community';
     $type    = $_POST['type'] ?? 'article';
-    $allowedTypes = $channel === 'site' ? ['article', 'note', 'transmission'] : ['article', 'note'];
+    $allowedTypes = $channel === 'site' ? ['article', 'transmission'] : ['article'];
     if (!in_array($type, $allowedTypes, true)) {
         $type = 'article';
     }
@@ -84,8 +84,7 @@ page_head('Write', 'Write an article or note', 'none', 'WRITE');
 <?php endif; ?>
       <label for="type">Type</label>
       <select id="type" name="type">
-        <option value="article" <?= !in_array($_POST['type'] ?? '', ['note', 'transmission'], true) ? 'selected' : '' ?>>Article — essay, long-form</option>
-        <option value="note" <?= ($_POST['type'] ?? '') === 'note' ? 'selected' : '' ?>>Note — technical, framework</option>
+        <option value="article" <?= !in_array($_POST['type'] ?? '', ['transmission'], true) ? 'selected' : '' ?>>Article — essay, long-form</option>
 <?php if ($isAdmin): ?>
         <option value="transmission" <?= ($_POST['type'] ?? '') === 'transmission' ? 'selected' : '' ?>>Transmission — voice-originated (site only)</option>
 <?php endif; ?>

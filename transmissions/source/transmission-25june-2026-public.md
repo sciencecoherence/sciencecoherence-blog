@@ -3,7 +3,7 @@
 *Addressed to all of us.*
 
 *Originally received as a voice message to one person, under San Pedro,
-Olón, 25 June 2026. Rewritten as it was actually arriving — to everyone.*
+Ecuador, 25 June 2026. Rewritten as it was actually arriving — to everyone.*
 
 ---
 
@@ -160,4 +160,4 @@ too. All of it. One book.
 
 ---
 
-*— 25 June 2026, Olón. Cleaned and addressed outward, 29 June 2026.*
+*— 25 June 2026, Ecuador. Cleaned and addressed outward, 29 June 2026.*

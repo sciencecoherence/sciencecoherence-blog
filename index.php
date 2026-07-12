@@ -25,7 +25,7 @@ if (count($posts) > $limit) {
     array_pop($posts);
 }
 
-page_head('Feed', 'Voice-originated transmissions & framework notes', 'feed');
+page_head('Feed', 'Voice-originated transmissions', 'feed');
 ?>
 
 <?php if (!$posts): ?>

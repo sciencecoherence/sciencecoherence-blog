@@ -89,8 +89,8 @@ if ($isSite && $post['type'] === 'transmission') {
     $brand = 'TRANSMISSION';
     $current = 'feed';
 } elseif ($isSite) {
-    $brand = 'NOTES';
-    $current = 'notes';
+    $brand = 'SITE';
+    $current = 'feed';
 } else {
     $brand = 'COMMUNITY';
     $current = 'community';
@@ -141,7 +141,7 @@ page_head($post['title'], $metabar, $current, $brand, $meta_desc);
     <a href="#" class="disabled">← Previous</a>
 <?php endif; ?>
     <span class="spacer"></span>
-    <a href="<?= $post['type'] === 'transmission' ? '/' : '/notes.php' ?>">↑ All <?= $post['type'] === 'transmission' ? 'transmissions' : 'notes' ?></a>
+    <a href="/">↑ All transmissions</a>
     <span class="spacer"></span>
 <?php if ($next): ?>
     <a href="<?= e(post_url($next)) ?>">Next →</a>

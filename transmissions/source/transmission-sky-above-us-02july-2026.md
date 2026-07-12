@@ -62,4 +62,4 @@ There is no way to escape what's coming. There is nowhere to hide.
 
 ---
 
-*— 25 June 2026, Olón. Extracted 4 July 2026.*
+*— 25 June 2026, Ecuador. Extracted 4 July 2026.*
